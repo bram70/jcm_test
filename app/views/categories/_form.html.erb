@@ -1,0 +1,16 @@
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @category do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name%>
+  <%= f.label :keywords%>
+  <%= f.collection_select :keywords, @keywords, :id, :phrase, :multiple => true %>
+
+  
+  <%= submit_tag "#{@category.new_record? ? 'Create':'Update'} Category"%>
+<%end%>

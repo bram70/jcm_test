@@ -1,0 +1,9 @@
+<h1>Stores: <%= @store.name%></h1>
+<%= button_to "Edit Store", edit_store_path(@store.id), method: :get %>
+<%= button_to "Delete Store", stores_destroy_path, method: :delete %>
+
+<p>Street: <%= @store.street%></p>
+<p>Number: <%= @store.number%></p>
+<p>Zip code: <%= @store.zipcode%></p>
+<p>City: <%= @store.city%></p>
+<p>Country: <%= @store.country%></p>

@@ -1,0 +1,20 @@
+<h1>Products#show</h1>
+
+<%= button_to "Edit Product", edit_product_path(@product.id), method: :get %>
+<%= button_to "Delete Product", products_destroy_path, method: :delete %>
+
+<p>
+  Name: <% @product.name %>
+</p>
+<p>
+  Color: <% @product.color %>
+</p>
+<p>
+  Size: <% @product.size %>
+</p>
+<p>
+  Price: <% @product.price %>
+</p>
+<p>
+  Category: <% @product.category %>
+</p>

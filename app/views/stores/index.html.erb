@@ -1,0 +1,7 @@
+<h1>Stores index</h1>
+<%= button_to "Add new store", stores_new_path, method: :get %>
+<ul>
+  <% @stores.each do |store| %>
+    <li><%= link_to store.name, store_path(store)%></li>
+  <%end%>
+</ul>

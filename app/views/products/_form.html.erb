@@ -1,0 +1,35 @@
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @product do |f| %>
+  <p>
+  <%= f.label :name%>
+  <%= f.text_field :name%>
+  </p>
+  <p>
+  <%= f.label :color%>
+  <%= f.text_field :color%>
+  </p>
+  <p>
+  <%= f.label :size%>
+  <%= f.text_field :size%>
+  </p>
+  <p>
+  <%= f.label :price%>
+  <%= f.text_field :price%>
+  </p>
+  <p>
+  <%= f.label :category%>
+  <%= f.collection_select :category, @categories, :id, :name%>
+  </p>
+  <p>
+  <%= f.label :stores%>
+  <%= f.collection_select :stores, @stores, :id, :name, :multiple => true %>
+  </p>
+  
+  <%= submit_tag "#{@product.new_record? ? 'Create':'Update'} Product"%>
+<%end%>

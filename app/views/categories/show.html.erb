@@ -4,8 +4,7 @@
 <%= button_to "Delete category", categories_destroy_path, method: :delete %>
 
 <ul>
-  <% @category.keyword.each do |keyword| %>
+  <% @category.keywords.each do |keyword| %>
     <li><%= link_to keyword.phrase, '' %></li>
   <%end%>
 </ul>
-
