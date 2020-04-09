@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @keywords = @category.keywords 
+    @keywords = @category.keywords
   end
 
   def edit
