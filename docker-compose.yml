@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+ db:
+   image: "mysql:5.7"
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_USERNAME: root
+     MYSQL_PASSWORD: root
+   ports:
+      - "3307:3306"
+ website:
+   depends_on:
+      - "db"
+   build: .
+   ports:
+      - "3000:3000"
+   environment:
+     DB_USERNAME: root
+     DB_PASSWORD: root
+     DB_DATABASE: sample
+     DB_PORT: 3306
+     DB_HOST: db
+     RAILS_ENV: development 
+     RAILS_MAX_THREADS: 5
+   volumes:
+      - ".:/app"
+      - "./config/docker/database.yml:/app/config/database.yml"
+
+volumes:
+ db:

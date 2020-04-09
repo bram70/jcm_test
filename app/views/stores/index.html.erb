@@ -4,7 +4,22 @@
 <%= button_to "Add new store", stores_new_path, method: :get %>
 <ul>
   <% @stores.each do |store| %>
-    <li><%= link_to store.name, store_path(store)%></li>
+    <li>
+          <p>
+          <span class="label_text">
+          <%= link_to store.name, store_path(store)%>
+          </span>
+          <%= link_to "Edit", store_path(store)%>
+          <%= link_to "Delete", product_path(store)%>
+          </p>
+          <span class="label_text">
+          <%=store.street%>
+          </span>
+          <span class="label_text">
+          <%=store.number%>
+          <%=store.zipcode%>
+          </span>
+        </li>
   <%end%>
 </ul>
 

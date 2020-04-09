@@ -1,7 +1,5 @@
-<h1>Products#show</h1>
-
-<%= button_to "Edit Product", edit_product_path(@product.id), method: :get %>
-<%= button_to "Delete Product", products_destroy_path, method: :delete %>
+<div class="container">
+<h1>Products details</h1>
 
 <p>
   Name: <% @product.name %>
@@ -18,3 +16,8 @@
 <p>
   Category: <% @product.category %>
 </p>
+
+<%= button_to "Edit Product", edit_product_path(@product.id), method: :get %>
+<%= button_to "Delete Product", products_destroy_path, method: :delete %>
+
+</div>

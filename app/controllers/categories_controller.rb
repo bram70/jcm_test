@@ -6,6 +6,11 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
     @keywords = Keyword.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def create
@@ -27,12 +32,16 @@ class CategoriesController < ApplicationController
   def edit
     @category = Category.find(params[:id])
     @keywords = Keyword.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
     @category = Category.find(params[:id])
     @category.update(params.require(:category).permit(:name,:keyword))
-    redirect_to store_path(@category)
+    redirect_to category_path(@category)
 
   end
 

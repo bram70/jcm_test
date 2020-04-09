@@ -12,5 +12,9 @@
   <%= f.collection_select :keywords, @keywords, :id, :phrase, :multiple => true %>
 
   
-  <%= submit_tag "#{@category.new_record? ? 'Create':'Update'} Category"%>
+<div class="modal-footer">
+   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+   <%= submit_tag "#{@category.new_record? ? 'Create':'Update'} Category", :class => "btn btn-primary"%>
+ </div>
 <%end%>

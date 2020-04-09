@@ -1,11 +1,25 @@
 
     <div class="container">
 
-    <h1>Products#index</h1>
+    <h1>List / Products</h1>
     <%= button_to "Add new Product", products_new_path, method: :get %>
     <ul>
       <% @products.each do |product| %>
-        <li><%= link_to product.name, product_path(product)%></li>
+        <li>
+          <p>
+          <span class="label_text">
+          <%= link_to product.name, product_path(product)%>
+          </span>
+          <%= link_to "Edit", product_path(product)%>
+          <%= link_to "Delete", product_path(product)%>
+          </p>
+          <span class="label_text">
+          <%=product.category%>
+          </span>
+          <span class="label_text">
+          <%=product.price%>
+          </span>
+        </li>
       <%end%>
     </ul>
 </div>
