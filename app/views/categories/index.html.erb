@@ -1,24 +1,31 @@
 <div class="container">
 <h1>Categories index</h1>
-<%= link_to "Add new category", new_category_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-windows'} %>
+
+<%= link_to "Add new category", new_category_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-windows', :class => "btn btn-primary"} %>
 
 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
+  <div class="modal-dialog" role="document">
+  <div class="modal-content"></div>
   </div>
 </div>
 
-<ul>
+
+  <ul>
   <% @categories.each do |category| %>
     <li>
-        <p>
           <span class="label_text">
           <%= link_to category.name, category_path(category)%>
           </span>
-          <%= link_to "Edit", category_path(category)%>
-          <%= link_to "Delete", category_path(category)%>
-          </p>
+
+          <%= link_to "Edit", edit_category_path(category), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-windows'} %>
+          <%= link_to "Delete", category_path(category), :method => 'delete'%>
+
+          <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content"></div>
+            </div>
+          </div>
     </li>
   <%end%>
-</ul>
+  </ul>
 </div>

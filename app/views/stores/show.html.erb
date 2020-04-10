@@ -8,7 +8,7 @@
 <p>Country: <%= @store.country%></p>
 
 <p>
-<%= button_to "Edit Store", edit_store_path(@store.id), method: :get %>
-<%= button_to "Delete Store", stores_destroy_path, method: :delete %>
+<%= button_to "Edit Store", edit_store_path(@store.id), :class => "btn btn-primary", method: :get %>
+<%= button_to "Back to Stores", stores_path, :class => "btn btn-primary" %>
 </p>
 </div>

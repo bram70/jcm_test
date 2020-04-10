@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_033138) do
     t.string "phrase"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_keywords_on_category_id"
   end
 

@@ -54,3 +54,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "mysql2", "~> 0.5.3"
+source "https://rails-assets.org" do
+  gem 'rails-assets-jquery', '~>2'
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-autosize', '~>3'
+  gem 'rails-assets-select-sync'
+  gem 'rails-assets-chosen'
+  gem 'rails-assets-chosen-bootstrap'
+  gem 'rails-assets-chosen-material-theme'
+  gem 'rails-assets-bootstrap-directional-buttons'
+end

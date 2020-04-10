@@ -1,7 +1,6 @@
-
-    <div class="container">
+<div class="container">
 <h1>Stores index</h1>
-<%= button_to "Add new store", stores_new_path, method: :get %>
+<%= button_to "Add new store", stores_new_path, :class => "btn btn-primary", method: :get %>
 <ul>
   <% @stores.each do |store| %>
     <li>
@@ -9,8 +8,8 @@
           <span class="label_text">
           <%= link_to store.name, store_path(store)%>
           </span>
-          <%= link_to "Edit", store_path(store)%>
-          <%= link_to "Delete", product_path(store)%>
+          <%= link_to "Edit", edit_store_path(store)%>
+          <%= link_to "Delete", store_path(store), :method => 'delete'%>
           </p>
           <span class="label_text">
           <%=store.street%>
@@ -22,5 +21,4 @@
         </li>
   <%end%>
 </ul>
-
 </div>

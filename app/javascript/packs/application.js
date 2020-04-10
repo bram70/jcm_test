@@ -7,9 +7,13 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
 //require("bootstrap-modal")
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
+
+//import "expose-loader?$!jquery";
+//require("chosen-rails")
 
 import "bootstrap"
 import "../stylesheets/application"

@@ -5,11 +5,14 @@
   <% end %>
 <% end %>
 
-<%= form_for @category do |f| %>
+<%= form_for(@category, remote: true) do |f| %>
   <%= f.label :name%>
   <%= f.text_field :name%>
   <%= f.label :keywords%>
-  <%= f.collection_select :keywords, @keywords, :id, :phrase, :multiple => true %>
+  <%= f.select :keyword_ids, 
+    Keyword.all.map { |k| [k.phrase, k.id] },
+                    { include_blank: true },
+                    { multiple: true, class: 'chosen-select' } %>
 
   
 <div class="modal-footer">

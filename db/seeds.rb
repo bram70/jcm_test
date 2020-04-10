@@ -8,9 +8,9 @@ c1 = Category.create(name: "Medicine")
 c2 = Category.create(name: "Beauty")
 c3 = Category.create(name: "Grocery")
 
-k11 = Keyword.create(phrase: "pills", category_id: c1)
-k21 = Keyword.create(phrase: "drops", category_id: c1)
-k31 = Keyword.create(phrase: "syrup", category_id: c1)
+k11 = Keyword.create(phrase: "pills", category_id: c1.id)
+k21 = Keyword.create(phrase: "drops", category_id: c1.id)
+k31 = Keyword.create(phrase: "syrup", category_id: c1.id)
 
 k12 = Keyword.create(phrase: "makeup", category_id: c2)
 k22 = Keyword.create(phrase: "saloon", category_id: c2)
@@ -24,7 +24,7 @@ k33 = Keyword.create(phrase: "fruits", category_id: c3)
 s1 = Store.create(name: "CruzAzul", street: "Guayacanes y Ficus", number: "1231", zipcode: "GYE12389", city: "Guayaquil", country: "EC")
 s2 = Store.create(name: "Fybeca", street: "Guayacanes y Ficus", number: "1231", zipcode: "GYE12389", city: "Guayaquil", country: "EC")
 
-p1 = Product.create(name: "Cepillo dental", color: "Azul", size: 1, price: 1.45, categories_id: c1.id) 
+p1 = Product.create(name: "Cepillo dental", color: "Azul", size: 1, price: 1.45, categories_id: c1) 
 p1.stores << s1
 p1.save!
 p2 = Product.create(name: "Uvas", color: "Azul", size: 1, price: 1.45, categories_id: c2.id) 

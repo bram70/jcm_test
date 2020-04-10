@@ -19,8 +19,12 @@ class CategoriesController < ApplicationController
     if @category.valid?
       redirect_to categories_path
     else
-      flash[:error] = @category.errors.full_messages
-      redirect_to categories_new_path
+      @keywords = Keyword.all
+      flash[:errors] = @category.errors.full_messages
+      respond_to do |format|
+        format.html { render :edit }
+        format.js { render :edit}
+      end
     end
   end
 
@@ -40,16 +44,27 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    @category.update(params.require(:category).permit(:name,:keyword))
-    redirect_to category_path(@category)
-
+    if @category.update_attributes(category_params)
+      redirect_to @category
+    else
+      @keywords = Keyword.all
+      flash[:errors] = @category.errors.full_messages
+      respond_to do |format|
+        format.html { render :edit }
+        format.js { render :edit}
+      end
+    end
   end
 
   def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    flash[:notice] = 'Category deleted successfully!'
+    redirect_to :action=> 'index'
   end
 
   private
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, keyword_ids: [])
   end
 end

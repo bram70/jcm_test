@@ -1,17 +1,13 @@
+<div class="container">
 <h1>Category: <%= @category.name%></h1>
-
-<%= button_to "Delete category", categories_destroy_path, method: :delete %>
-
-<%= link_to "Edit category", edit_category_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-windows'} %>
-
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
-  </div>
-</div>
-
+<p>keywords</p>
 <ul>
   <% @category.keywords.each do |keyword| %>
     <li><%= link_to keyword.phrase, '' %></li>
   <%end%>
 </ul>
+
+<p>
+<%= button_to "Back to categories", categories_path, method: :get %>
+</p>
+</div>

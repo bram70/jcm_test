@@ -8,11 +8,12 @@ class StoresController < ApplicationController
   end
 
   def create
-    @store = Store.create(params.require(:store).permit(:name,:street,:number,:zipcode,:city,:country))
+    @store = Store.new(store_params)
+    @store.save
     if @store.valid?
       redirect_to stores_path
     else
-      flash[:error] = @store.errors.full_messages
+      flash[:errors] = @store.errors.full_messages
       redirect_to stores_new_path
     end
   end
@@ -28,12 +29,17 @@ class StoresController < ApplicationController
   def update
     @store = Store.find(params[:id])
     @store.update(params.require(:store).permit(:name,:street,:city,:country,:number))
-    redirect_to store_path(@store)
+    redirect_to stores_path
   end
 
   def destroy
     @store = Store.find(params[:id])
     @store.destroy
-    redirect_to stores_path
+    flash[:notice] = 'Store deleted successfully!'
+    redirect_to :action=> 'index'
   end
+  private
+  def store_params
+    params.require(:store).permit(:name,:street,:number,:zipcode,:city,:country)
+  end 
 end
