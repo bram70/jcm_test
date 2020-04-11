@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2020_04_09_033138) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.string "color"
-    t.integer "size"
+    t.string "size"
     t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "categories_id", null: false
-    t.index ["categories_id"], name: "index_products_on_categories_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "products_stores", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -54,5 +54,5 @@ ActiveRecord::Schema.define(version: 2020_04_09_033138) do
   end
 
   add_foreign_key "keywords", "categories"
-  add_foreign_key "products", "categories", column: "categories_id"
+  add_foreign_key "products", "categories"
 end

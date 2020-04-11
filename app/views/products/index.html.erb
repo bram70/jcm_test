@@ -10,11 +10,13 @@
           <span class="label_text">
           <%= link_to product.name, product_path(product)%>
           </span>
-          <%= link_to "Edit", product_path(product)%>
-          <%= link_to "Delete", product_path(product)%>
+          <%= link_to "Edit", edit_product_path(product)%>
+          <%= link_to "Delete", product_path(product), :method => 'delete'%>
           </p>
           <span class="label_text">
-          <%=product.category%>
+          <% for keyword in product.category.keywords%>
+            #<%= keyword.phrase %>
+          <% end %>
           </span>
           <span class="label_text">
           <%=product.price%>

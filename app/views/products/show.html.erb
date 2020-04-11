@@ -2,19 +2,19 @@
 <h1>Products details</h1>
 
 <p>
-  Name: <% @product.name %>
+  Name: <%= @product.name %>
 </p>
 <p>
-  Color: <% @product.color %>
+  Color: <%= @product.color %>
 </p>
 <p>
-  Size: <% @product.size %>
+  Size: <%= @product.size %>
 </p>
 <p>
-  Price: <% @product.price %>
+  Price: <%= @product.price %>
 </p>
 <p>
-  Category: <% @product.category %>
+  Category: <%= @product.category.name %>
 </p>
 
 <%= button_to "Edit Product", edit_product_path(@product.id), method: :get %>

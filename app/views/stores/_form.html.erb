@@ -29,5 +29,14 @@
   <%= f.label :country%>
   <%= f.text_field :country%>
   </p>
+
+  <p>
+  <%= f.label :products%>
+  <%= f.select :products, 
+    Product.all.map { |k| [k.name, k.id] },
+                    { include_blank: true },
+                    { multiple: true, class: 'chosen-select' } %>
+
+  </p>
    <%= submit_tag "#{@store.new_record? ? 'Create':'Update'} Store", :class => "btn btn-primary"%>
 <%end%>

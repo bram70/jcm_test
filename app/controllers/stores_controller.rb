@@ -28,8 +28,12 @@ class StoresController < ApplicationController
 
   def update
     @store = Store.find(params[:id])
-    @store.update(params.require(:store).permit(:name,:street,:city,:country,:number))
-    redirect_to stores_path
+    if @store.update_attributes(store_params)
+      redirect_to stores_path
+    else
+      flash[:errors] = @store.errors.full_messages
+      redirect_to @store
+    end 
   end
 
   def destroy

@@ -16,7 +16,7 @@
   </p>
   <p>
   <%= f.label :size%>
-  <%= f.text_field :size%>
+  <%= f.select :size, Product::SIZE_TYPES%>
   </p>
   <p>
   <%= f.label :price%>
@@ -28,7 +28,13 @@
   </p>
   <p>
   <%= f.label :stores%>
-  <%= f.collection_select :stores, @stores, :id, :name, :multiple => true %>
+  <%= f.select :store_ids, 
+    Store.all.map { |k| [k.name, k.id] },
+                    { include_blank: true },
+                    { multiple: true, class: 'chosen-select' } %>
+
+
+
   </p>
   
   <%= submit_tag "#{@product.new_record? ? 'Create':'Update'} Product"%>
