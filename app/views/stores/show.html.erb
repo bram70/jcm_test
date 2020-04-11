@@ -1,11 +1,21 @@
 <div class="container">
 <h1>Stores: <%= @store.name%></h1>
-
+<div class="field">
 <p>Street: <%= @store.street%></p>
+</div>
 <p>Number: <%= @store.number%></p>
 <p>Zip code: <%= @store.zipcode%></p>
 <p>City: <%= @store.city%></p>
 <p>Country: <%= @store.country%></p>
+<p>
+Products: 
+<ul>
+<% for product in  @store.products %>
+  <li><span><%= product.name%></span> </li>
+<%end%>
+</ul>
+</p>
+
 
 <p>
 <%= button_to "Edit Store", edit_store_path(@store.id), :class => "btn btn-primary", method: :get %>

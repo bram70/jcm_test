@@ -17,7 +17,16 @@
   Category: <%= @product.category.name %>
 </p>
 
-<%= button_to "Edit Product", edit_product_path(@product.id), method: :get %>
-<%= button_to "Delete Product", products_destroy_path, method: :delete %>
+<p>
+Stores: 
+<ul>
+<% for store in  @product.stores %>
+  <li><span><%= store.name%></span> <span> (<%= store.zipcode%>)</span></li>
+<%end%>
+</ul>
+</p>
+
+<%= button_to "Edit Product", edit_product_path(@product.id),:class => "btn btn-primary", method: :get %>
+<%= link_to "Back to Products", products_path , {:class => "btn btn-primary"}%>
 
 </div>

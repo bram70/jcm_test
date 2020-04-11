@@ -5,6 +5,7 @@
 <% end %>
 
 <%= form_for @store do |f| %>
+  <div class="form-group">
   <p>
   <%= f.label :name%>
   <%= f.text_field :name%>
@@ -32,11 +33,12 @@
 
   <p>
   <%= f.label :products%>
-  <%= f.select :products, 
+  <%= f.select :product_ids, 
     Product.all.map { |k| [k.name, k.id] },
                     { include_blank: true },
                     { multiple: true, class: 'chosen-select' } %>
 
   </p>
    <%= submit_tag "#{@store.new_record? ? 'Create':'Update'} Store", :class => "btn btn-primary"%>
+  </div>
 <%end%>

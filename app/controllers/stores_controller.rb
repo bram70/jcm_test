@@ -32,7 +32,7 @@ class StoresController < ApplicationController
       redirect_to stores_path
     else
       flash[:errors] = @store.errors.full_messages
-      redirect_to @store
+      redirect_to edit_store_url 
     end 
   end
 
@@ -44,6 +44,6 @@ class StoresController < ApplicationController
   end
   private
   def store_params
-    params.require(:store).permit(:name,:street,:number,:zipcode,:city,:country)
+    params.require(:store).permit(:name,:street,:number,:zipcode,:city,:country, product_ids: [])
   end 
 end

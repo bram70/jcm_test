@@ -2,7 +2,7 @@
     <div class="container">
 
     <h1>List / Products</h1>
-    <%= button_to "Add new Product", products_new_path, method: :get %>
+    <%= button_to "Add new Product", products_new_path,:class => "btn btn-primary", method: :get %>
     <ul>
       <% @products.each do |product| %>
         <li>
