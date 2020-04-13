@@ -7,13 +7,15 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("packs/forms.js")
 
 //require("bootstrap-modal")
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
 
+//require("jquery")
+require("chosen-jquery")
 //import "expose-loader?$!jquery";
-//require("chosen-rails")
 
 import "bootstrap"
 import "../stylesheets/application"
@@ -23,3 +25,4 @@ import "../stylesheets/application"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//

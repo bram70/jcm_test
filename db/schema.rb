@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_033138) do
     t.string "number"
     t.string "zipcode"
     t.string "city"
+    t.string "state"
     t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
