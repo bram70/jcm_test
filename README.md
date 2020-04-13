@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
+* Ruby version= 2.7.1
 
 * System dependencies
+  rails 6
+  docker
 
-* Configuration
+* Configuration (with docker)
+  run `docker-compose up -d` 
+  check docker and containers are running 
+  docker-compose exec website rake db:drop db:create db:migrate db:seed
+  
+  At the browser, visit : http://localhost:3000/
 
-* Database creation
+* Configuration (without docker)
+  bundle install
+  rake db:drop db:create db:migrate db:seed
+  rails server
+  At the browser, visit : http://localhost:3000/
+  
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
