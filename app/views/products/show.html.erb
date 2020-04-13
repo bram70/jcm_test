@@ -1,7 +1,8 @@
-<div class="container">
+<div class="card">
 <h1>Products details</h1>
 
-<p>
+<div class="card-body">
+<p class="card-subtitle mb-2 text-muted">
   Name: <%= @product.name %>
 </p>
 <p>
@@ -19,14 +20,20 @@
 
 <p>
 Stores: 
-<ul>
+<ul class="list-group">
 <% for store in  @product.stores %>
-  <li><span><%= store.name%></span> <span> (<%= store.zipcode%>)</span></li>
+  <li class="list-group-item"><span><%= store.name%></span> <span> (<%= store.zipcode%>)</span></li>
 <%end%>
 </ul>
 </p>
 
-<%= button_to "Edit Product", edit_product_path(@product.id),:class => "btn btn-primary", method: :get %>
-<%= link_to "Back to Products", products_path , {:class => "btn btn-primary"}%>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= link_to "Back to Products", products_path , {:class => "btn link"}%>
+    </div>
+    <div class="col-sm-4">
+      <%= button_to "Edit Product", edit_product_path(@product.id),:class => "btn btn-link", method: :get %>
+    </div>
+  </div>
 
 </div>

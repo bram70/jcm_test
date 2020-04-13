@@ -1,4 +1,3 @@
-
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
     <p style="color: red"><%= error %></p>
@@ -6,46 +5,67 @@
 <% end %>
 
 <%= form_for @store do |f| %>
-  <div class="form-group">
-  <p>
-  <%= f.label :name%>
-  <%= f.text_field :name%>
-  </p>
-  <p>
-  <%= f.label :street%>
-  <%= f.text_field :street%>
-  </p>
-  <p>
-  <%= f.label :number%>
-  <%= f.text_field :number%>
-  </p>
-  <p>
-  <%= f.label :zipcode%>
-  <%= f.text_field :zipcode%>
-  </p>
+  <div class="row">
+    <div class="col-sm-10">
+      <%= f.label :name%>
+      <%= f.text_field :name, { :class => 'form-control', :placeholder => 'Write Store name' }%>
+    </div>
+    <div class="col-sm-10">
+      <%= f.label :street%>
+      <%= f.text_field :street, { :class => 'form-control', :placeholder => 'Street address'}%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.label :number%>
+      <%= f.text_field :number, { :class => 'form-control', :placeholder => 'Street number'} %>
+    </div>
+  </div>
 
-  <p>
-  <%= f.label :country%>
-  <%= f.select :country, collection: CountryStateSelect.countries_collection %>
-  </p>
-  <p>
-  <%= f.label :state%>
-  <%= f.text_field :state%>
-  </p>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :zipcode%>
+      <%= f.text_field :zipcode, {:class => 'form-control', :placeholder => 'Zip code for address'}%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :country%>
+      <%= f.select :country, collection: CountryStateSelect.countries_collection, :class => 'form-control  form-control-lg' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :state%>
+      <%= f.text_field :state, {:class => 'form-control', :placeholder => 'State'}%>
+  </div>
+  </div>
 
-  <p>
-  <%= f.label :city%>
-  <%= f.text_field :city%>
-  </p>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :city%>
+      <%= f.text_field :city, {:class => 'form-control', :placeholder => 'City'}%>
+    </div>
+  </div>
 
-  <p>
-  <%= f.label :products%>
-  <%= f.select :product_ids, 
-    Product.all.map { |k| [k.name, k.id] },
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :products%>
+      <%= f.select :product_ids, 
+        Product.all.map { |k| [k.name, k.id] },
                     { include_blank: true },
-                    { multiple: true, class: 'chosen-select' } %>
+                    { multiple: true, class: 'chosen-select form-control' } %>
 
-  </p>
-   <%= submit_tag "#{@store.new_record? ? 'Create':'Update'} Store", :class => "btn btn-primary"%>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-sm-4">
+      <%= link_to "Back to Stores", stores_path, :class => "btn btn-link" %>
+    </div>
+    <div class="col-sm-4">
+      <%= submit_tag "#{@store.new_record? ? 'Create':'Update'} Store", :class => "btn btn-link"%>
+    </div>
+
   </div>
 <%end%>

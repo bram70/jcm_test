@@ -6,36 +6,57 @@
 <% end %>
 
 <%= form_for @product do |f| %>
-  <p>
+  <div class="row">
+    <div class="col-sm-10">
   <%= f.label :name%>
-  <%= f.text_field :name%>
-  </p>
-  <p>
+  <%= f.text_field :name, { :class => 'form-control', :placeholder => 'Product name' }%>
+  </div>
+    <div class="col-sm-4">
   <%= f.label :color%>
-  <%= f.text_field :color%>
-  </p>
-  <p>
+  <%= f.text_field :color, { :class => 'form-control', :placeholder => 'Product color'}%>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8">
   <%= f.label :size%>
-  <%= f.select :size, Product::SIZE_TYPES%>
-  </p>
-  <p>
+  <%= f.select :size, Product::SIZE_TYPES, :class => 'form-control form-control-lg' %>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8">
   <%= f.label :price%>
-  <%= f.text_field :price%>
-  </p>
-  <p>
+  <%= f.text_field :price, { :class => 'form-control', :placeholder => 'Product price'}%>
+    </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-8">
+
   <%= f.label :category%>
   <%= f.collection_select :category, @categories, :id, :name%>
-  </p>
-  <p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
   <%= f.label :stores%>
   <%= f.select :store_ids, 
     Store.all.map { |k| [k.name, k.id] },
                     { include_blank: true },
-                    { multiple: true, class: 'chosen-select' } %>
+                    { multiple: true, class: 'chosen-select form-control' } %>
 
 
+    </div>
+    </div>
 
-  </p>
+<br />
   
-  <%= submit_tag "#{@product.new_record? ? 'Create':'Update'} Product", :class => "btn btn-primary"%>
+  <div class="row">
+    <div class="col-sm-4">
+<%= link_to "Back to Products", products_path, {:class => "btn btn-link"} %>
+  </div>
+    <div class="col-sm-4">
+  <%= submit_tag "#{@product.new_record? ? 'Create':'Update'} Product", :class => "btn btn-link"%>
+  </div>
+  </div>
 <%end%>

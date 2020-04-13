@@ -10,15 +10,15 @@
 </div>
 
 
-  <ul>
+  <ul class="list-group">
   <% @categories.each do |category| %>
-    <li>
+      <li class="list-group-item">
           <span class="label_text">
           <%= link_to category.name, category_path(category)%>
           </span>
 
-          <%= link_to "Edit", edit_category_path(category), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-windows'} %>
-          <%= link_to "Delete", category_path(category), :method => 'delete'%>
+          <%= link_to "Edit", edit_category_path(category), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-windows', :class => "btn btn-outline-secondary"} %>
+          <%= link_to "Delete", category_path(category), :class => "btn btn-outline-danger", :method => 'delete'%>
 
           <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">

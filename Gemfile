@@ -64,3 +64,10 @@ source "https://rails-assets.org" do
   gem 'rails-assets-chosen-material-theme'
   gem 'rails-assets-bootstrap-directional-buttons'
 end
+
+#gem "gem", "~> 0.0.1.alpha"
+
+gem "country_state_select", "~> 3.0"
+
+gem 'jquery-rails'
+gem "chosen-rails", "~> 1.9"

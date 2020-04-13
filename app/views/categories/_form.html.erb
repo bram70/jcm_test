@@ -7,18 +7,28 @@
 <% end %>
 
 <%= form_for(@category, remote: true) do |f| %>
+
+  <div class="row">
+    <div class="col-sm-10">
   <%= f.label :name%>
   <%= f.text_field :name%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+
   <%= f.label :keywords%>
   <%= f.select :keyword_ids, 
     Keyword.all.map { |k| [k.phrase, k.id] },
                     { include_blank: true },
-                    { multiple: true, class: 'chosen-select' } %>
+                    { multiple: true, class: 'chosen-select  form-control' } %>
 
+      </div>
+  </div>
   
 <div class="modal-footer">
-   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+   <button class="btn btn-link" data-dismiss="modal" aria-hidden="true">Close</button>
 
-   <%= submit_tag "#{@category.new_record? ? 'Create':'Update'} Category", :class => "btn btn-primary"%>
+   <%= submit_tag "#{@category.new_record? ? 'Create':'Update'} Category", :class => "btn btn-link"%>
  </div>
 <%end%>
